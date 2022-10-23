@@ -3,7 +3,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');// plantillas
 const methodOverride = require('method-override'); // formularios
 const expressSession = require('express-session'); // sessiones
-
+const flash = require('connect-flash');
 // Initializer
 const app = express();
 require('./database');
@@ -24,14 +24,20 @@ app.set('view engine', '.hbs');
 
 //Middleware
 app.use(express.urlencoded({extended: false})); // para entender datos del formulario get,post,put,overrid
-app.use(methodOverride('__method'));
+app.use(methodOverride('_method')); // es necesario para validar put
 app.use(expressSession({
   secret: 'mysecretapp',
   resave: true,
   saveUninitialized: true
-}))
+}));
+app.use(flash());
 
 // Global Variables
+app.use((req, res, next) => {
+res.locals.success_msg = req.flash('success_msg');
+res.locals.error_msg = req.flash('error_msg');
+  next();
+});
 
 //Routes
 app.use(require('./routes/index'));
