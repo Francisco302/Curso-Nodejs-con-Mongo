@@ -1,1 +1,23 @@
-<h1>Sign ing</h1>
+<div class="row">
+    <div class="col-md-4 text-center mx-auto">
+        <div class="card mt-4 text-center">
+            <div class="card-header">
+                <h1>Account Login</h1>
+            </div>
+            <img src="/img/computer.jpg" alt="Logo" class="logo rounded-circle mx-auto d-block m-4">
+            <div class="card-body">
+                <form action="/users/signin" method="post">
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" 
+                        class="form-control" placeholder="Email" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" 
+                        class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group"><button type="submit" class="btn btn-success btn-block">Login</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

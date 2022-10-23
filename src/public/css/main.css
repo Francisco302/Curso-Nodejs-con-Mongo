@@ -8,6 +8,10 @@ body {
 
 }
 
-#form-group{
-    margin-top: 30px;
+.form-group{
+    margin-top: 10px;
+}
+
+.logo{
+    width: 30%;
 }
